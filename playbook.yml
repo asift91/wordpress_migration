@@ -5,7 +5,6 @@
     - copysitetostorage
     - copydatatostorage
     - databaseexport
-    - copydbsqltostorage
     - updatetargetinfo
     - createNcopystoragezip
 
@@ -13,6 +12,4 @@
   roles:
     - unzipstorage
     - databaseimport
-    - movesitecontent
-    - movedatacontent
     - replication
