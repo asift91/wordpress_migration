@@ -23,6 +23,4 @@ target_db_login_name: dbadmin@mysql-u4nerw
 target_db_pass: iTalent@27
 target_db_name: wordpress
 
-# Password will be auto generated
-wp_admin_password: LiRxE7cg
-wp_db_user_pass: rzmY0su_
+
