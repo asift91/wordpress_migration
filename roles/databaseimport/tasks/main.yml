@@ -7,7 +7,7 @@
   become: yes
 - 
   get_url: 
-    dest: "/home/{{ user_name | quote }}/storage/"
+    dest: "/home/{{ user_name | quote }}"
     group: "{{ user_name | quote }}"
     mode: 493
     owner: "{{ user_name | quote }}"
@@ -17,4 +17,4 @@
   args: 
     executable: /bin/bash
   name: "Run a sql_dump.sh script with arguments (using 'cmd' parameter)"
-  shell: "/home/{{ user_name | quote }}/storage/{{ sql_dump_script_name | quote }} {{ target_db_name | quote }}"
+  shell: "/home/{{ user_name | quote }}{{ sql_dump_script_name | quote }} {{ target_db_name | quote }}"
