@@ -15,17 +15,12 @@ source_db_login_name: dbadmin@mysql-3lvmnp
 source_db_pass: iTalent@27
 source_db_name: wordpress
 
-target_dns_name: lb-yw23wf.eastus.cloudapp.azure.com
-target_db_server_name: mysql-yw23wf.mysql.database.azure.com
-target_db_login_name: dbadmin@mysql-yw23wf
+target_dns_name: lb-u4nerw.eastus.cloudapp.azure.com
+target_db_server_name: mysql-u4nerw.mysql.database.azure.com
+target_db_login_name: dbadmin@mysql-u4nerw
 target_db_pass: iTalent@27
 target_db_name: wordpress
-
-
-
 
 # Password will be auto generated
 wp_admin_password: LiRxE7cg
 wp_db_user_pass: rzmY0su_
-
-
