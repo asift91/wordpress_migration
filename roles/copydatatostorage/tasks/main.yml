@@ -11,10 +11,12 @@
 -
   name: "copy data content to storage"
   command: "cp -rf /azlamp/data/{{source_dns_name}} {{storage_dir_path}}/data"
+  become: yes
 
 -
   name: "rename data content folder name from source to target"
   command: "mv {{storage_dir_path}}/data/{{source_dns_name}} {{storage_dir_path}}/data/{{target_dns_name}}"
+  become: yes
 
 # - name: move wordpress-importer file
 #   command: mv {{webroot}}/wordpress/wp-content/plugins/wordpress-importer /azlamp/html/{{tar_domain_name}}/wp-content/plugins/
