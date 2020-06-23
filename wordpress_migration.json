@@ -1,0 +1,163 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        
+        "adminUsername": {
+            "defaultValue": "azureadmin",
+            "type": "String",
+            "metadata": {
+                "description": "Username for the Virtual Machine."
+            }
+        },
+        "sshPublicKey": {
+            "type": "SecureString",
+            "metadata": {
+                "description": "SSH Key for the Virtual Machine. SSH key is recommended."
+            }
+        },
+        "WordpressDestinationVM IP": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide Controller VM IP to install ansible"
+            }
+        },
+        "WordpressDestinationVMPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Provide Controller VM IP password."
+            }
+        },
+		"DestinationWordpressDomainName": {
+            "type": "string",
+            "metadata": {
+                "description": "Domain for WordPress"
+            }
+        },
+		"DestinationDBServerName": {
+            "type": "string",
+            "metadata": {
+                "description": "Database server name of Remote VM."
+            }
+        },
+        "DestinationDBServerAdminLoginName": {
+            "type": "string",
+            "metadata": {
+                "description": "Database server Admin login name."
+            }
+        },
+        "DestinationDBServerAdminLoginPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Database server Admin login Password."
+            }
+        },
+		"DestinationDatabaseName": {
+            "type": "string",
+            "metadata": {
+                "description": "Create new database with the provided name."
+            }
+        },
+		"SourceWordpressDomainName": {
+            "type": "string",
+            "metadata": {
+                "description": "Domain for WordPress"
+            }
+        },
+        "SourceDBServerName": {
+            "type": "string",
+            "metadata": {
+                "description": "Database server name of Remote VM."
+            }
+        },
+        "SourceDBServerAdminLoginName": {
+            "type": "string",
+            "metadata": {
+                "description": "Database server Admin login name."
+            }
+        },
+        "SourceDBServerAdminLoginPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Database server Admin login Password."
+            }
+        },
+        "SourceDatabaseName": {
+            "type": "string",
+            "metadata": {
+                "description": "Create new database with the provided name."
+            }
+        }
+        
+    },
+    "variables": {
+        "location": "[resourceGroup().location]",
+        "scriptinput": "[concat(parameters('WordpressRemoteVMIP(ControllerVM)'), ' ',parameters('remoteVMPassword(ControllerVM)'), ' ', parameters('adminUsername'), ' ', parameters('databaseServerName'), ' ', parameters('ServerAdminLoginName'), ' ', parameters('ServerAdminLoginPassword'), ' ', parameters('wordPressDomainName'), ' ', parameters('newDatabaseName'))]",
+        "base64String": "[base64(variables('scriptinput'))]",
+        "resourceprefix": "[substring(uniqueString(resourceGroup().id, deployment().name), 3, 6)]",
+        "ansibleVmSku": "[parameters('ansibleVmSku')]",
+        "ansibleNicName": "[concat('ansible-nic-',variables('resourceprefix'))]",
+        "ansibleNsgName": "[concat('ansible-nsg-',variables('resourceprefix'))]",
+        "ansibleVnet": "[concat('ansible-vnet-',variables('resourceprefix'))]",
+        "ansibleSubnet": "[concat('ansible-subnet-',variables('resourceprefix'))]",
+        "ansibleVmName": "[concat(parameters('ansibleVmName'),'-',variables('resourceprefix'))]",
+        "publicIpAddressName": "[concat(parameters('ansibleVmName'), '-publicIp-', variables('resourceprefix'))]",
+        "networkInterfaceName": "[variables('ansibleNicName')]",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('ansibleVnet'), variables('ansibleSubnet'))]",
+        "osDiskType": "Standard_LRS",
+        "subnetAddressPrefix": "172.31.0.0/24",
+        "addressPrefix": "172.31.0.0/16",
+        "ubuntuOSVersion": "16.04.0-LTS",
+        "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+                "publicKeys": [
+                    {
+                        "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                        "keyData": "[parameters('sshPublicKey')]"
+                    }
+                ]
+            }
+        }
+    },
+    "resources": [
+        
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2017-03-30",
+            "name": "[concat(variables('ansibleVmName'),'/','ansibleServer')]",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/',variables('ansibleVmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Azure.Extensions",
+                "type": "CustomScript",
+                "typeHandlerVersion": "2.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                        "https://raw.githubusercontent.com/ummadisudhakar/LAMP/ansible_playbook_mat32/scripts/wordpress_main.sh"
+                    ]
+                },
+                "protectedSettings": {
+                    "commandToExecute": "[concat('bash wordpress_main.sh ', parameters('adminUsername'), ' ', variables('base64String'))]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "adminUsername": {
+            "type": "String",
+            "value": "[parameters('adminUsername')]"
+        },
+        "hostname": {
+            "type": "String",
+            "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
+        },
+        "sshCommand": {
+            "type": "String",
+            "value": "[concat('ssh ', parameters('adminUsername'), '@', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
+        }
+    }
+}
