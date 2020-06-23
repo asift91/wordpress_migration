@@ -1,0 +1,18 @@
+--- 
+- name: Extract storage.zip
+  unarchive:
+    src: "/home/azureadmin/storage.zip"
+    dest: /home/azureadmin/
+    owner: "{{default_permission}}"
+    group: "{{default_permission}}"
+    copy: no
+  become: yes
+  when: not check_path.stat.exists
+
+-
+  name: "move site contents"
+  command: "mv {{storage_dir_path}}/site/{{target_dns_name}} /azlamp/html/"
+
+-
+  name: "move data contents"
+  command: "mv {{storage_dir_path}}/data/{{target_dns_name}} /azlamp/data/"

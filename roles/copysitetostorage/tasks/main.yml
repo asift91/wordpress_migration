@@ -1,0 +1,37 @@
+--- 
+-
+  name: Create a main stotage directory
+  file:
+    state: directory
+    path: "{{storage_dir_path}}"
+    owner: "{{default_permission}}"
+    group: "{{default_permission}}"
+    mode: 0755
+  become: yes
+-
+  name: Create a site stotage directory
+  file:
+    state: directory
+    path: "{{storage_dir_path}}/site"
+    owner: "{{default_permission}}"
+    group: "{{default_permission}}"
+    mode: 0755
+  become: yes
+-
+  name: "copy site content to storage"
+  command: "cp -rf /azlamp/html/{{source_dns_name}}/ {{storage_dir_path}}/site"
+
+-
+  name: "rename site content folder name from source to target"
+  command: "mv {{storage_dir_path}}/site/{{source_dns_name}}/ {{storage_dir_path}}/site/{{target_dns_name}}"
+
+# - 
+#   command: scp {{xml_path}}/wordpress.xml {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+#   name: "copy xml file to remote host" 
+#   no_log: false
+  
+# - 
+#   command: scp /home/{{user_name}}/database.sql {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+#   name: "copy .sql file to remote host" 
+#   no_log: false
+  

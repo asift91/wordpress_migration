@@ -1,0 +1,18 @@
+- hosts: 127.0.0.1
+  connection: local
+  roles:
+    - sshkeyconfig
+    - copysitetostorage
+    - copydatatostorage
+    - databaseexport
+    - copydbsqltostorage
+    - updatetargetinfo
+    - createNcopystoragezip
+
+- hosts: webservers
+  roles:
+    - unzipstorage
+    - databaseimport
+    - movesitecontent
+    - movedatacontent
+    - replication

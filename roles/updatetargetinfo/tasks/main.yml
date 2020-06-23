@@ -1,0 +1,15 @@
+---
+-
+  name: "Download update_target_info script using get_url"
+  get_url:
+    dest: /home/{{user_name | quote }}/storage
+    group: "{{ user_name | quote }}"
+    mode: 493
+    owner: "{{ user_name | quote }}"
+    url: "{{target_info}}"
+  
+-
+  name: "Run a replica script with arguments (using 'cmd' parameter)"
+  shell: /home/{{ user_name | quote }}/storage/{{target_info_script_name}} {{ target_db_server_name | quote }} {{ target_db_login_name | quote }} {{ target_db_pass | quote }} {{ target_db_name | quote }} {{ target_dns_name | quote }}
+  args:
+    executable: /bin/bash
