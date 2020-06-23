@@ -20,10 +20,13 @@
 -
   name: "copy site content to storage"
   command: "cp -rf /azlamp/html/{{source_dns_name}}/ {{storage_dir_path}}/site"
+  become: yes
 
 -
   name: "rename site content folder name from source to target"
   command: "mv {{storage_dir_path}}/site/{{source_dns_name}}/ {{storage_dir_path}}/site/{{target_dns_name}}"
+  become: yes
+
 
 # - 
 #   command: scp {{xml_path}}/wordpress.xml {{user_name}}@{{vm_ip}}:/home/{{user_name}}
