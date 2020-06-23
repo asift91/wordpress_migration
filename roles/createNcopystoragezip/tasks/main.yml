@@ -1,7 +1,7 @@
 ---
 - name: Create a zip archive of storage
   archive:
-    path: {{storage_dir_path}}
+    path: "{{storage_dir_path}}"
     format: zip
     dest: /home/azureadmin/storage.zip
 
