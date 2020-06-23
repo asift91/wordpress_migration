@@ -11,7 +11,9 @@
 -
   name: "move site contents"
   command: "mv {{storage_dir_path}}/site/{{target_dns_name}} /azlamp/html/"
+  become: yes
 
 -
   name: "move data contents"
   command: "mv {{storage_dir_path}}/data/{{target_dns_name}} /azlamp/data/"
+  become: yes
