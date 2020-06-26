@@ -7,5 +7,5 @@
 
 -
   name: "copy storage.tar file to remote host"
-  command: rsync -avz /home/{{user_name}}/storage.tar {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+  command: scp /home/{{user_name}}/storage.tar {{user_name}}@{{vm_ip}}:/home/{{user_name}}
   #no_log: false
