@@ -2,10 +2,10 @@
 - name: Create a zip archive of storage
   archive:
     path: "{{storage_dir_path}}"
-    format: zip
-    dest: /home/azureadmin/storage.zip
+    format: tar.gz
+    dest: /home/azureadmin/storage.tar.gz
 
 -
   name: "copy storage.zip file to remote host"
-  command: rsync -avz /home/{{user_name}}/storage.zip {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+  command: rsync -avz /home/{{user_name}}/storage.tar.gz {{user_name}}@{{vm_ip}}:/home/{{user_name}}
   #no_log: false
