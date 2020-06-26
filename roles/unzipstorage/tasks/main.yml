@@ -1,5 +1,5 @@
 --- 
-- name: Extract storage.zip
+- name: Extract storage.tar.gz
   unarchive:
     src: "/home/azureadmin/storage.zip"
     dest: /home/azureadmin/
