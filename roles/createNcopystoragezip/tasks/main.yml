@@ -1,5 +1,5 @@
 ---
-- name: Create a zip archive of storage
+- name: Create a .tar.gz archive of storage
   archive:
     path: "{{storage_dir_path}}"
     format: tar.gz
