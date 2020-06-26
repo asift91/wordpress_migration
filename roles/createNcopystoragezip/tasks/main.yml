@@ -1,11 +1,11 @@
 ---
-- name: Create a .tar.gz archive of storage
+- name: Create a .tar archive of storage
   archive:
     path: "{{storage_dir_path}}"
     format: tar
     dest: /home/azureadmin/storage.tar
 
 -
-  name: "copy storage.tar.gz file to remote host"
+  name: "copy storage.tar file to remote host"
   command: rsync -avz /home/{{user_name}}/storage.tar {{user_name}}@{{vm_ip}}:/home/{{user_name}}
   #no_log: false
