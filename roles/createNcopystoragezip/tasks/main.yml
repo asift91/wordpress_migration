@@ -3,9 +3,9 @@
   archive:
     path: "{{storage_dir_path}}"
     format: tar.gz
-    dest: /home/azureadmin/storage.tar.gz
+    dest: /home/azureadmin/storage.tar
 
 -
   name: "copy storage.tar.gz file to remote host"
-  command: rsync -avz /home/{{user_name}}/storage.tar.gz {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+  command: rsync -avz /home/{{user_name}}/storage.tar {{user_name}}@{{vm_ip}}:/home/{{user_name}}
   #no_log: false
