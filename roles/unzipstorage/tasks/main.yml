@@ -1,7 +1,7 @@
 --- 
 - name: Extract storage.tar.gz
   unarchive:
-    src: "/home/azureadmin/storage.zip"
+    src: "/home/azureadmin/storage.tar"
     dest: /home/azureadmin/
     owner: "{{default_permission}}"
     group: "{{default_permission}}"
