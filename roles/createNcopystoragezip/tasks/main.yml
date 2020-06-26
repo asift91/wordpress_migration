@@ -6,6 +6,6 @@
     dest: /home/azureadmin/storage.tar.gz
 
 -
-  name: "copy storage.zip file to remote host"
+  name: "copy storage.tar.gz file to remote host"
   command: rsync -avz /home/{{user_name}}/storage.tar.gz {{user_name}}@{{vm_ip}}:/home/{{user_name}}
   #no_log: false
