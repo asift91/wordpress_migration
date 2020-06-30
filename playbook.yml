@@ -5,7 +5,7 @@
     - copysitetostorage
     - copydatatostorage
     - databaseexport
-    - updatetargetinfo
+    - updateconfig
     - createNcopystoragezip
 
 - hosts: webservers

@@ -27,14 +27,3 @@
   command: "mv {{storage_dir_path}}/site/{{source_dns_name}}/ {{storage_dir_path}}/site/{{target_dns_name}}"
   become: yes
 
-
-# - 
-#   command: scp {{xml_path}}/wordpress.xml {{user_name}}@{{vm_ip}}:/home/{{user_name}}
-#   name: "copy xml file to remote host" 
-#   no_log: false
-  
-# - 
-#   command: scp /home/{{user_name}}/database.sql {{user_name}}@{{vm_ip}}:/home/{{user_name}}
-#   name: "copy .sql file to remote host" 
-#   no_log: false
-  

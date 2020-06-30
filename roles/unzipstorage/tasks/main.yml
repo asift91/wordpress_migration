@@ -1,8 +1,8 @@
 --- 
 - name: Extract storage.tar
   unarchive:
-    src: "/home/azureadmin/storage.tar"
-    dest: /home/azureadmin/
+    src: "/home/{{user_name}}/storage.tar"
+    dest: /home/{{user_name}}/
     owner: "{{default_permission}}"
     group: "{{default_permission}}"
     copy: no

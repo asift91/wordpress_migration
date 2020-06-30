@@ -18,11 +18,3 @@
   command: "mv {{storage_dir_path}}/data/{{source_dns_name}} {{storage_dir_path}}/data/{{target_dns_name}}"
   become: yes
 
-# - name: move wordpress-importer file
-#   command: mv {{webroot}}/wordpress/wp-content/plugins/wordpress-importer /azlamp/html/{{tar_domain_name}}/wp-content/plugins/
-#   become: true
-# - name: move xml file
-#   command: mv /home/{{user_name}}/{{file_format}} {{tar_wordpress_path}}
-#   become: true 
-
-# cp -rf /azlamp/data/lb-3lvmnp.eastus.cloudapp.azure.com /home/azureadmin/storage/
