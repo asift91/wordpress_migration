@@ -1,11 +1,11 @@
 user_name: azureadmin
 file_format: tar
 vm_password: iTalent@27
-vm_ip: 52.146.42.101
+vm_ip: 52.149.180.106
 default_permission: www-data
 webroot: /var/www/html
 storage_dir_path: /home/azureadmin/storage
-target_info_script_name: updatetargetinfo.sh
+target_info_script_name: updateconfig.sh
 replication_name: replication.sh
 target_info: https://raw.githubusercontent.com/sayali0512/ansible-script/master/updateconfig.sh
 replication_url: https://raw.githubusercontent.com/sayali0512/ansible-script/master/replication.sh
@@ -19,9 +19,9 @@ source_db_login_name: dbadmin@mysql-gfljoq
 source_db_pass: iTalent@27
 source_db_name: wordpress
 
-target_dns_name: lb-d4pjef.eastus.cloudapp.azure.com
-target_db_server_name: mysql-d4pjef.mysql.database.azure.com
-target_db_login_name: dbadmin@mysql-d4pjef
+target_dns_name: lb-zich67.eastus.cloudapp.azure.com
+target_db_server_name: mysql-zich67.mysql.database.azure.com
+target_db_login_name: dbadmin@mysql-zich67
 target_db_pass: iTalent@27
 target_db_name: wordpress
 
