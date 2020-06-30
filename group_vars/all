@@ -24,5 +24,6 @@ target_db_server_name: mysql-zich67.mysql.database.azure.com
 target_db_login_name: dbadmin@mysql-zich67
 target_db_pass: iTalent@27
 target_db_name: wordpress
+db_name: wordpress
 
 
