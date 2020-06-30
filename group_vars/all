@@ -13,9 +13,9 @@ sql_dump_url: https://raw.githubusercontent.com/sayali0512/ansible-script/master
 sql_dump_script_name: sql_dump.sh
 sql_dump_filename: database.sql
 
-source_dns_name: lb-gfljoq.eastus.cloudapp.azure.com
-source_db_server_name: mysql-gfljoq.mysql.database.azure.com
-source_db_login_name: dbadmin@mysql-gfljoq
+source_dns_name: lb-5nw26r.eastus.cloudapp.azure.com
+source_db_server_name: mysql-5nw26r.mysql.database.azure.com
+source_db_login_name: dbadmin@mysql-zich67
 source_db_pass: iTalent@27
 source_db_name: wordpress
 
