@@ -15,7 +15,7 @@ sql_dump_filename: database.sql
 
 source_dns_name: lb-5nw26r.eastus.cloudapp.azure.com
 source_db_server_name: mysql-5nw26r.mysql.database.azure.com
-source_db_login_name: dbadmin@mysql-zich67
+source_db_login_name: dbadmin@mysql-5nw26r
 source_db_pass: iTalent@27
 source_db_name: wordpress
 
