@@ -5,6 +5,4 @@
     format: "{{file_format}}"
     dest: /home/{{user_name}}/storage.tar
 
--
-  name: "copy storage.tar file to remote host"
-  command: scp /home/{{user_name}}/storage.tar {{user_name}}@{{vm_ip}}:/home/{{user_name}}
+
