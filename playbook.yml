@@ -6,7 +6,7 @@
     - copydatatostorage
     - databaseexport
     - updateconfig
-    - createNcopystoragezip
+    - zipstorage
     - copytoblobstorage
 
 - hosts: webservers
