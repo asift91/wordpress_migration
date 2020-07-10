@@ -1,14 +1,21 @@
 --- 
 - 
-  get_url: 
-    dest: "/home/{{ user_name | quote }}"
-    group: "{{ user_name | quote }}"
-    mode: 493
-    owner: "{{ user_name | quote }}"
-    url: "{{exporttostorage_url}}"
-  name: "Download sql_dump.sh script using get_url"
-- 
-  args: 
-    executable: /bin/bash
-  name: "Run a exportToStorage.sh script with arguments (using 'cmd' parameter)"
-  shell: "/home/{{ user_name | quote }}/{{ exporttostorage_name | quote }} {{ rg_name | quote }} {{ storage_name | quote }} {{ container_name | quote }} {{ user_name | quote }} {{ blob_storage | quote }} {{ storage_key | quote }}"
+  name: export to storage
+  command: az storage blob upload --account-name {{ storage_name | quote }}  --account-key {{ storage_key | quote }} --container-name {{ container_name | quote }} --file /home/{{ user_name | quote }}/{{ blob_storage | quote }} --name {{ blob_storage | quote }}
+
+
+
+
+# - 
+#   get_url: 
+#     dest: "/home/{{ user_name | quote }}"
+#     group: "{{ user_name | quote }}"
+#     mode: 493
+#     owner: "{{ user_name | quote }}"
+#     url: "{{exporttostorage_url}}"
+#   name: "Download sql_dump.sh script using get_url"
+# - 
+#   args: 
+#     executable: /bin/bash
+#   name: "Run a exportToStorage.sh script with arguments (using 'cmd' parameter)"
+#   shell: "/home/{{ user_name | quote }}/{{ exporttostorage_name | quote }} {{ rg_name | quote }} {{ storage_name | quote }} {{ container_name | quote }} {{ user_name | quote }} {{ blob_storage | quote }} {{ storage_key | quote }}"
