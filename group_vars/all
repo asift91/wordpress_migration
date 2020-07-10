@@ -1,7 +1,7 @@
 user_name: azureadmin
 file_format: tar
 vm_password: iTalent@27
-vm_ip: 52.149.180.106
+vm_ip: 137.135.78.10
 default_permission: www-data
 webroot: /var/www/html
 storage_dir_path: /home/azureadmin/storage
