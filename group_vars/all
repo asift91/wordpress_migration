@@ -35,7 +35,7 @@ db_name: wordpress
 rg_name: blobstorage
 storage_name: p3io9o8
 container_name: newcont
-blob_storage: wordpress.tar
+blob_storage: storage.tar
 storage_key: 0T33IRkP7NDE4tIBM1Izbx9AJOsKmoAv1VmqqyghwYMS3ylOYpQNVIE3TUM51tiUTUaD+MvgRghRzROkTHwZsg==
 
 
