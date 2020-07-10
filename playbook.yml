@@ -7,9 +7,11 @@
     - databaseexport
     - updateconfig
     - createNcopystoragezip
+    - copytoblobstorage
 
 - hosts: webservers
   roles:
+    - importFromStorage
     - unzipstorage
     - databaseimport
     - replication

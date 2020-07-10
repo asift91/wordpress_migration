@@ -10,8 +10,12 @@ replication_name: replication.sh
 target_info: https://raw.githubusercontent.com/sayali0512/ansible-script/master/updateconfig.sh
 replication_url: https://raw.githubusercontent.com/sayali0512/ansible-script/master/replication.sh
 sql_dump_url: https://raw.githubusercontent.com/sayali0512/ansible-script/master/sql_dump.sh
+exporttostorage_url: https://raw.githubusercontent.com/sayali0512/Migration_Activity/master/exportToStorage.sh
+imporfromstorage_url: https://raw.githubusercontent.com/sayali0512/Migration_Activity/master/importFromStorage.sh
+importfromstorage_name: importFromStorage.sh
 sql_dump_script_name: sql_dump.sh
 sql_dump_filename: database.sql
+exporttostorage_name: exportToStorage.sh
 
 source_dns_name: lb-5nw26r.eastus.cloudapp.azure.com
 source_db_server_name: mysql-5nw26r.mysql.database.azure.com
@@ -25,5 +29,13 @@ target_db_login_name: dbadmin@mysql-zich67
 target_db_pass: iTalent@27
 target_db_name: wordpress
 db_name: wordpress
+
+
+#Export details
+rg_name=blobstorage
+storage_name=p3io9o8
+container_name=newcont
+blob_storage=wordpress.txt
+storage_key=0T33IRkP7NDE4tIBM1Izbx9AJOsKmoAv1VmqqyghwYMS3ylOYpQNVIE3TUM51tiUTUaD+MvgRghRzROkTHwZsg==
 
 

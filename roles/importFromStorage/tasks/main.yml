@@ -1,0 +1,14 @@
+--- 
+- 
+  get_url: 
+    dest: "/home/{{ user_name | quote }}"
+    group: "{{ user_name | quote }}"
+    mode: 493
+    owner: "{{ user_name | quote }}"
+    url: "{{imporfromstorage_url}}"
+  name: "Download importfromstorage script using get_url"
+- 
+  args: 
+    executable: /bin/bash
+  name: "Run a imporfromstorage.sh script with arguments (using 'cmd' parameter)"
+  shell: "/home/{{ user_name | quote }}/{{ importfromstorage_name| quote }} {{ rg_name | quote }} {{ storage_name | quote }}{{ container_name | quote }} {{ user_name | quote }} {{ blob_storage | quote }} {{ storage_key | quote }}
