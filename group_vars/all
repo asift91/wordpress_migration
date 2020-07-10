@@ -32,10 +32,10 @@ db_name: wordpress
 
 
 #Export details
-rg_name=blobstorage
-storage_name=p3io9o8
-container_name=newcont
-blob_storage=wordpress.tar
-storage_key=0T33IRkP7NDE4tIBM1Izbx9AJOsKmoAv1VmqqyghwYMS3ylOYpQNVIE3TUM51tiUTUaD+MvgRghRzROkTHwZsg==
+rg_name: blobstorage
+storage_name: p3io9o8
+container_name: newcont
+blob_storage: wordpress.tar
+storage_key: 0T33IRkP7NDE4tIBM1Izbx9AJOsKmoAv1VmqqyghwYMS3ylOYpQNVIE3TUM51tiUTUaD+MvgRghRzROkTHwZsg==
 
 
