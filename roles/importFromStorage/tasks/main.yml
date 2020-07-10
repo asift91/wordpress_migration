@@ -11,4 +11,4 @@
   args: 
     executable: /bin/bash
   name: "Run a imporfromstorage.sh script with arguments (using 'cmd' parameter)"
-  shell: "/home/{{ user_name | quote }}/{{ importfromstorage_name| quote }} {{ rg_name | quote }} {{ storage_name | quote }}{{ container_name | quote }} {{ user_name | quote }} {{ blob_storage | quote }} {{ storage_key | quote }}"
+  shell: "/home/{{ user_name | quote }}/{{ importfromstorage_name| quote }} {{ rg_name | quote }} {{ storage_name | quote }} {{ container_name | quote }} {{ user_name | quote }} {{ blob_storage | quote }} {{ storage_key | quote }}"
